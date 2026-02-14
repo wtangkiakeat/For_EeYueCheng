@@ -12,17 +12,13 @@ body {
     background: linear-gradient(135deg, #ff758c, #ff7eb3);
     color: white;
     text-align: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    overflow: hidden;
 }
 
+/* Allow scrolling on mobile */
 .page {
     display: none;
-    width: 90%;
-    max-width: 900px;
+    padding: 40px 20px;
+    min-height: 100vh;
     animation: fade 1s ease-in-out;
 }
 
@@ -31,7 +27,7 @@ body {
 }
 
 h1 {
-    font-size: 2.5em;
+    font-size: 2em;
     text-shadow: 0 0 15px rgba(255,255,255,0.7);
 }
 
@@ -45,7 +41,8 @@ h1 {
 }
 
 .memory-images img {
-    width: 250px;
+    width: 90%;
+    max-width: 260px;
     border-radius: 20px;
     transition: 0.5s;
     box-shadow: 0 15px 30px rgba(0,0,0,0.3);
@@ -53,20 +50,21 @@ h1 {
 }
 
 .memory-images img:hover {
-    transform: scale(1.1);
+    transform: scale(1.08);
     box-shadow: 0 20px 40px rgba(0,0,0,0.5);
 }
 
 button {
-    margin-top: 25px;
-    padding: 12px 30px;
+    margin: 30px 0;
+    padding: 14px 35px;
     border: none;
-    border-radius: 30px;
+    border-radius: 40px;
     font-size: 16px;
     background: white;
     color: #ff4d6d;
     cursor: pointer;
     transition: 0.3s;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
 }
 
 button:hover {
@@ -76,9 +74,11 @@ button:hover {
 .comment {
     margin-top: 20px;
     font-style: italic;
-    font-size: 1.1em;
+    font-size: 1em;
+    line-height: 1.6;
 }
 
+/* Animations */
 @keyframes fade {
     from {opacity: 0; transform: translateY(20px);}
     to {opacity: 1; transform: translateY(0);}
@@ -97,9 +97,10 @@ button:hover {
 }
 
 .final-message {
-    margin-top: 20px;
-    font-size: 1.5em;
+    margin-top: 25px;
+    font-size: 1.4em;
     display: none;
+    animation: fade 2s ease-in-out;
 }
 
 .heart {
@@ -112,20 +113,31 @@ button:hover {
     from { transform: translateY(0); opacity: 1; }
     to { transform: translateY(-600px); opacity: 0; }
 }
+
+/* Music Button */
+#musicBtn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    background: white;
+    color: #ff4d6d;
+    cursor: pointer;
+    z-index: 1000;
+}
 </style>
 </head>
 
 <body>
 
 <!-- 🎵 BACKGROUND MUSIC -->
-<audio id="bgMusic" autoplay loop>
+<audio id="bgMusic" loop>
     <source src="music.mp3" type="audio/mpeg">
 </audio>
 
-<button id="musicBtn" onclick="playMusic()" 
-style="position:fixed; bottom:20px; right:20px; padding:10px 20px; border:none; border-radius:20px; background:white; color:#ff4d6d; cursor:pointer;">
-🎵 Play Music
-</button>
+<button id="musicBtn" onclick="playMusic()">🎵 Play Music</button>
 
 <!-- PAGE 1 -->
 <div class="page active">
@@ -240,16 +252,14 @@ style="position:fixed; bottom:20px; right:20px; padding:10px 20px; border:none; 
 
 <!-- FINAL PAGE -->
 <div class="page">
-    <h1>I Will Always Love You ❤️<br>
-        点这个花
-    </h1>
+    <h1>I Will Always Love You ❤️<br>点这个花</h1>
 
     <div class="flower" onclick="flowerEffect()">🌹</div>
+
     <div class="final-message" id="finalText">
         No matter what happens,<br>
         I will choose you again and again.<br><br>
         Forever yours ❤️真的真的
-        
     </div>
 </div>
 
@@ -261,13 +271,13 @@ function nextPage() {
     pages[current].classList.remove("active");
     current++;
     pages[current].classList.add("active");
+    window.scrollTo(0,0);
 }
 
-/* 🌹 Flower Explosion Effect */
 function flowerEffect() {
     document.getElementById("finalText").style.display = "block";
 
-    for (let i = 0; i < 30; i++) {
+    for (let i = 0; i < 35; i++) {
         let heart = document.createElement("div");
         heart.className = "heart";
         heart.innerHTML = "❤️";
@@ -282,7 +292,6 @@ function flowerEffect() {
     }
 }
 
-/* 🎵 Music Play Fallback */
 function playMusic() {
     const music = document.getElementById("bgMusic");
     music.play();
