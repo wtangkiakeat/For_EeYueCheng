@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For My Love ❤️</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #ff758c, #ff7eb3);
+    color: white;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.page {
+    display: none;
+    width: 90%;
+    max-width: 900px;
+    animation: fade 1s ease-in-out;
+}
+
+.page.active {
+    display: block;
+}
+
+h1 {
+    font-size: 2.5em;
+    text-shadow: 0 0 15px rgba(255,255,255,0.7);
+}
+
+/* ✨ BEAUTIFUL IMAGE STYLE */
+.memory-images {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.memory-images img {
+    width: 250px;
+    border-radius: 20px;
+    transition: 0.5s;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+    border: 3px solid rgba(255,255,255,0.4);
+}
+
+.memory-images img:hover {
+    transform: scale(1.1);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+}
+
+button {
+    margin-top: 25px;
+    padding: 12px 30px;
+    border: none;
+    border-radius: 30px;
+    font-size: 16px;
+    background: white;
+    color: #ff4d6d;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    transform: scale(1.1);
+}
+
+.comment {
+    margin-top: 20px;
+    font-style: italic;
+    font-size: 1.1em;
+}
+
+@keyframes fade {
+    from {opacity: 0; transform: translateY(20px);}
+    to {opacity: 1; transform: translateY(0);}
+}
+
+/* 🌹 Flower */
+.flower {
+    font-size: 70px;
+    cursor: pointer;
+    animation: float 2.5s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%,100% {transform: translateY(0);}
+    50% {transform: translateY(-10px);}
+}
+
+.final-message {
+    margin-top: 20px;
+    font-size: 1.5em;
+    display: none;
+}
+
+.heart {
+    position: fixed;
+    font-size: 20px;
+    animation: rise 4s linear forwards;
+}
+
+@keyframes rise {
+    from { transform: translateY(0); opacity: 1; }
+    to { transform: translateY(-600px); opacity: 0; }
+}
+</style>
+</head>
+
+<body>
+
+<!-- 🎵 BACKGROUND MUSIC -->
+<audio id="bgMusic" autoplay loop>
+    <source src="music.mp3" type="audio/mpeg">
+</audio>
+
+<button id="musicBtn" onclick="playMusic()" 
+style="position:fixed; bottom:20px; right:20px; padding:10px 20px; border:none; border-radius:20px; background:white; color:#ff4d6d; cursor:pointer;">
+🎵 Play Music
+</button>
+
+<!-- PAGE 1 -->
+<div class="page active">
+    <h1>I Love You ❤️俞悅澄</h1>
+    <p>You are the most beautiful thing that happened in my life.</p>
+    <button onclick="playMusic(); nextPage()">Click to Begin Our Story</button>
+</div>
+
+<!-- PAGE 2 -->
+<div class="page">
+    <h1>12 August — Our First Photo 📸</h1>
+    <div class="memory-images">
+        <img src="image1.jpg">
+        <img src="image2.jpg">
+        <img src="image3.jpg">
+    </div>
+    <div class="comment">
+        你直接拿我手机拍了自己和我们一起的照片<br>
+        这个时候就已经有点吸引到我了
+    </div>
+    <button onclick="nextPage()">Next ❤️</button>
+</div>
+
+<!-- PAGE 3 -->
+<div class="page">
+    <h1>3 October — Amusement Park 🎡</h1>
+    <div class="memory-images">
+        <img src="image4.jpg">
+        <img src="image5.jpg">
+        <img src="image6.jpg">
+    </div>
+    <div class="comment">
+        你这天穿了很美还化妆出来跟我玩 就有点喜欢你了<br>
+        带我玩了很多游乐设施 尤其是海盗船 <br>
+        我那时很怕 一直想抓你手了
+    </div>
+    <button onclick="nextPage()">Next ❤️</button>
+</div>
+
+<!-- PAGE 4 -->
+<div class="page">
+    <h1>24 November — Our Secret Day 🤫</h1>
+    <div class="memory-images">
+        <img src="image7.jpg">
+        <img src="image8.jpg">
+        <img src="image9.jpg">
+    </div>
+    <div class="comment">
+        这个是我刚从中国回来 早上你就主动来找我了 <br>
+        我也没有拒绝你 因为很想见到你了<br>
+        我们就一起出去玩了<br>
+        这天开始直接给很多人发现了
+    </div>
+    <button onclick="nextPage()">Next ❤️</button>
+</div>
+
+<!-- PAGE 5 -->
+<div class="page">
+    <h1>26 November — The Day Before Us 💞</h1>
+    <div class="memory-images">
+        <img src="image10.jpg">
+    </div>
+    <div class="comment">
+        这一天是告白的前一天 你很主动的过来陪我睡<br>
+        不懂你那时想什么
+    </div>
+    <button onclick="nextPage()">Next ❤️</button>
+</div>
+
+<!-- PAGE 6 -->
+<div class="page">
+    <h1>27 November — The Day We Confessed 💋</h1>
+    <div class="memory-images">
+        <img src="image11.jpg">
+    </div>
+    <div class="comment">
+        这个时候你偷亲我的那天 然后亲完就跑掉了<br>
+        一直暗示我跟你告白<br>
+        “你是不是应该要讲什么欸”
+    </div>
+    <button onclick="nextPage()">Next ❤️</button>
+</div>
+
+<!-- PAGE 7 -->
+<div class="page">
+    <h1>25 December — Christmas Together 🎄</h1>
+    <div class="memory-images">
+        <img src="image12.jpg">
+        <img src="image13.jpg">
+    </div>
+    <div class="comment">
+        这天是你最喜欢的节日 拍了很多圣诞树的照片<br>
+        这天的前一天是我们ponteng 也是出去玩的<br>
+    </div>
+    <button onclick="nextPage()">Next ❤️</button>
+</div>
+
+<!-- PAGE 8 -->
+<div class="page">
+    <h1>16 January 2026 — Everland 🎢</h1>
+    <div class="memory-images">
+        <img src="image14.jpg">
+        <img src="image15.jpg">
+    </div>
+    <div class="comment">
+        这次就跟上一次游乐园不一样了 我敢玩很多游乐设施了<br>
+        就算我很怕 但是那时候有你在 可以牵着你的手 让我没有这样怕了
+    </div>
+    <button onclick="nextPage()">Final ❤️</button>
+</div>
+
+<!-- FINAL PAGE -->
+<div class="page">
+    <h1>I Will Always Love You ❤️<br>
+        点这个花
+    </h1>
+
+    <div class="flower" onclick="flowerEffect()">🌹</div>
+    <div class="final-message" id="finalText">
+        No matter what happens,<br>
+        I will choose you again and again.<br><br>
+        Forever yours ❤️真的真的
+        
+    </div>
+</div>
+
+<script>
+let current = 0;
+const pages = document.querySelectorAll(".page");
+
+function nextPage() {
+    pages[current].classList.remove("active");
+    current++;
+    pages[current].classList.add("active");
+}
+
+/* 🌹 Flower Explosion Effect */
+function flowerEffect() {
+    document.getElementById("finalText").style.display = "block";
+
+    for (let i = 0; i < 30; i++) {
+        let heart = document.createElement("div");
+        heart.className = "heart";
+        heart.innerHTML = "❤️";
+        heart.style.left = Math.random() * window.innerWidth + "px";
+        heart.style.top = window.innerHeight - 50 + "px";
+        heart.style.fontSize = (Math.random() * 20 + 15) + "px";
+        document.body.appendChild(heart);
+
+        setTimeout(() => {
+            heart.remove();
+        }, 4000);
+    }
+}
+
+/* 🎵 Music Play Fallback */
+function playMusic() {
+    const music = document.getElementById("bgMusic");
+    music.play();
+    document.getElementById("musicBtn").style.display = "none";
+}
+</script>
+
+</body>
+</html>
